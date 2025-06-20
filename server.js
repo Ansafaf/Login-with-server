@@ -23,9 +23,12 @@ app.set("view engine","ejs");
 
 
 //mongoDB connection
-mongoose.connect(process.env.MONGO_URL)
-    .then(()=>console.log("MongoDB connected"))
-    .catch(err=>console.log(err));
+mongoose.connect(process.env.MONGO_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log('✅ Connected to Atlas (clients DB)'))
+.catch(err => console.error('❌ Connection failed:', err));
 
 
 
