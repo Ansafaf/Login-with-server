@@ -14,7 +14,7 @@ function getSignup(req,res){
  async function postSignup (req,res){
     const {username,email,password} = req.body;
     try{
-        const userData = await User.find({email});
+        const userData = await User.findOne({email});
         if(userData){
             return res.render("signup",{error:"Email already in use"});
         }
